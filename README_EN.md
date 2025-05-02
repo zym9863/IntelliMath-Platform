@@ -3,7 +3,7 @@
 [中文](README.md) | [English](README_EN.md)
 
 ![IntelliMath](https://img.shields.io/badge/IntelliMath-Structured%20Calculus%20Learning%20Platform-1976d2)
-![React](https://img.shields.io/badge/React-19.x-61dafb)
+![React](https://img.shields.io/badge/React-18.x-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
 ![MUI](https://img.shields.io/badge/MUI-7.x-007fff)
 
@@ -19,7 +19,7 @@ IntelliMath is a structured calculus learning platform designed to help students
 
 ## Technology Stack
 
-- **Frontend Framework**: React 19 + TypeScript
+- **Frontend Framework**: React 18 + TypeScript
 - **Build Tool**: Vite
 - **UI Component Library**: Material-UI (MUI) 7
 - **Routing Management**: React Router 7

@@ -3,7 +3,7 @@
 [中文](README.md) | [English](README_EN.md)
 
 ![智学高数](https://img.shields.io/badge/智学高数-结构化高等数学学习平台-1976d2)
-![React](https://img.shields.io/badge/React-19.x-61dafb)
+![React](https://img.shields.io/badge/React-18.x-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6)
 ![MUI](https://img.shields.io/badge/MUI-7.x-007fff)
 
@@ -19,7 +19,7 @@
 
 ## 技术栈
 
-- **前端框架**：React 19 + TypeScript
+- **前端框架**：React 18 + TypeScript
 - **构建工具**：Vite
 - **UI组件库**：Material-UI (MUI) 7
 - **路由管理**：React Router 7
