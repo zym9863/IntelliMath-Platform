@@ -1,9 +1,8 @@
 import { ChapterExercises } from '../types/calculus';
 
 // 章节练习题数据
-const chapterExercises: ChapterExercises[] = [
-  {
-    chapterId: 'limits',
+const chapterExercises: ChapterExercises[] = [  {
+    chapterId: 'limits-continuity',
     exercises: [
       {
         id: 'ex-limits-mc-1',
