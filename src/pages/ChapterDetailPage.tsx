@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link as RouterLink } from 'react-router-dom';
+import { useParams, Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   Container, Typography, Box, Breadcrumbs, Link, Grid, Paper,
-  Chip, useTheme, useMediaQuery, Fade
+  Chip, Button, useTheme, useMediaQuery, Fade
 } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import ConceptCard from '../components/calculus/ConceptCard';
 import calculusCourse from '../data/calculusData';
+import { updateChaptersWithExercises } from '../data/exercisesData';
 import { Chapter } from '../types/calculus';
 
 const ChapterDetailPage = () => {
@@ -17,10 +19,13 @@ const ChapterDetailPage = () => {
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (chapterId) {
-      const foundChapter = calculusCourse.chapters.find(ch => ch.id === chapterId);
+      // 更新章节数据，添加练习题标记
+      const updatedChapters = updateChaptersWithExercises(calculusCourse.chapters);
+      const foundChapter = updatedChapters.find(ch => ch.id === chapterId);
       if (foundChapter) {
         setChapter(foundChapter);
 
@@ -172,21 +177,35 @@ const ChapterDetailPage = () => {
           borderBottom: '1px solid',
           borderColor: 'divider'
         }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-            <Chip
-              icon={<MenuBookIcon />}
-              label={`第 ${chapter.order} 章`}
-              color="primary"
-              size="small"
-              sx={{ mr: 2, fontWeight: 500 }}
-            />
-            <Typography
-              variant="h4"
-              component="h1"
-              sx={{ fontWeight: 600 }}
-            >
-              {chapter.title}
-            </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, flexWrap: 'wrap', justifyContent: 'space-between' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Chip
+                icon={<MenuBookIcon />}
+                label={`第 ${chapter.order} 章`}
+                color="primary"
+                size="small"
+                sx={{ mr: 2, fontWeight: 500 }}
+              />
+              <Typography
+                variant="h4"
+                component="h1"
+                sx={{ fontWeight: 600 }}
+              >
+                {chapter.title}
+              </Typography>
+            </Box>
+            
+            {chapter.hasExercises && (
+              <Button
+                variant="contained"
+                color="secondary"
+                startIcon={<AssignmentIcon />}
+                onClick={() => navigate(`/chapter/${chapterId}/exercises`)}
+                sx={{ mt: { xs: 2, md: 0 } }}
+              >
+                章节练习题
+              </Button>
+            )}
           </Box>
 
           <Typography

@@ -4,6 +4,8 @@ import Layout from './components/layout/Layout';
 import HomePage from './pages/HomePage';
 import ChaptersPage from './pages/ChaptersPage';
 import ChapterDetailPage from './pages/ChapterDetailPage';
+import ExercisesPage from './pages/ExercisesPage';
+import WrongExercisesPage from './pages/WrongExercisesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 
@@ -111,6 +113,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/chapters" element={<ChaptersPage />} />
             <Route path="/chapter/:chapterId" element={<ChapterDetailPage />} />
+            <Route path="/chapter/:chapterId/exercises" element={<ExercisesPage />} />
+            <Route path="/wrong-exercises" element={<WrongExercisesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>

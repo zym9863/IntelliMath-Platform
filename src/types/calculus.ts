@@ -51,6 +51,69 @@ export interface Chapter {
   description: string;
   concepts: Concept[];
   order: number;
+  hasExercises?: boolean; // 标记章节是否有练习题
+}
+
+/**
+ * 选择题选项类型
+ */
+export interface Option {
+  id: string;
+  text: string;
+  isCorrect: boolean;
+}
+
+/**
+ * 练习题基础类型
+ */
+export interface ExerciseBase {
+  id: string;
+  title: string;
+  problem: string;
+  difficulty: 'easy' | 'medium' | 'hard';
+  relatedConceptIds: string[];
+  explanation: string; // 解题步骤和解析
+}
+
+/**
+ * 选择题类型
+ */
+export interface MultipleChoiceExercise extends ExerciseBase {
+  type: 'multipleChoice';
+  options: Option[];
+  correctOptionId: string;
+}
+
+/**
+ * 填空题类型
+ */
+export interface FillInBlankExercise extends ExerciseBase {
+  type: 'fillInBlank';
+  blanks: string[]; // 正确答案数组，对应每个空
+}
+
+/**
+ * 计算题类型
+ */
+export interface CalculationExercise extends ExerciseBase {
+  type: 'calculation';
+  answer: string; // 正确答案
+  acceptableError?: number; // 可接受的误差范围（对于数值计算题）
+}
+
+/**
+ * 练习题类型（联合类型）
+ */
+export type Exercise = MultipleChoiceExercise | FillInBlankExercise | CalculationExercise;
+
+/**
+ * 用户答题记录类型
+ */
+export interface ExerciseAttempt {
+  exerciseId: string;
+  userAnswer: string | string[];
+  isCorrect: boolean;
+  timestamp: number;
 }
 
 /**
@@ -61,4 +124,12 @@ export interface Course {
   title: string;
   description: string;
   chapters: Chapter[];
+}
+
+/**
+ * 章节练习题集合
+ */
+export interface ChapterExercises {
+  chapterId: string;
+  exercises: Exercise[];
 }
