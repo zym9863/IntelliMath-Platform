@@ -125,7 +125,7 @@ const HomePage = () => {
         </Typography>
         <Grid container spacing={4} sx={{ mt: 2 }}>
           {calculusCourse.chapters.map((chapter) => (
-            <Grid item xs={12} md={4} key={chapter.id}>
+            <Grid {...{ item: true, xs: 12, md: 4, key: chapter.id } as any}>
               <Card
                 className="chapter-card"
                 sx={{
@@ -218,7 +218,7 @@ const HomePage = () => {
             为什么选择智学高数？
           </Typography>
           <Grid container spacing={4}>
-            <Grid item xs={12} md={4}>
+            <Grid {...{ item: true, xs: 12, md: 4 } as any}>
               <Box
                 sx={{
                   textAlign: 'center',
@@ -251,7 +251,7 @@ const HomePage = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid {...{ item: true, xs: 12, md: 4 } as any}>
               <Box
                 sx={{
                   textAlign: 'center',
@@ -284,7 +284,7 @@ const HomePage = () => {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid {...{ item: true, xs: 12, md: 4 } as any}>
               <Box
                 sx={{
                   textAlign: 'center',

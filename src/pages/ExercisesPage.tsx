@@ -68,7 +68,6 @@ const ExercisesPage = () => {
 
         <Box sx={{ 
           display: 'flex', 
-          alignItems: 'center', 
           mb: 4,
           flexDirection: isMobile ? 'column' : 'row',
           alignItems: isMobile ? 'flex-start' : 'center',
