@@ -169,6 +169,6 @@ export const addToWrongExercises = (exerciseId: string) => {
 // 从错题集中移除
 export const removeFromWrongExercises = (exerciseId: string) => {
   const wrongExercises = getWrongExercises();
-  const updatedWrongExercises = wrongExercises.filter(id => id !== exerciseId);
+  const updatedWrongExercises = wrongExercises.filter((id: string) => id !== exerciseId);
   localStorage.setItem('wrongExercises', JSON.stringify(updatedWrongExercises));
 };
