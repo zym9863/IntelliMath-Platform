@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   Container, Typography, Box, Breadcrumbs, Link, Grid, Paper,
-  Chip, Button, useTheme, useMediaQuery, Fade
+  Chip, Button,Fade
 } from '@mui/material';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -17,8 +17,6 @@ const ChapterDetailPage = () => {
   const { chapterId } = useParams<{ chapterId: string }>();
   const [chapter, setChapter] = useState<Chapter | null>(null);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -234,7 +232,7 @@ const ChapterDetailPage = () => {
         </Box>
 
         <Grid container spacing={4}>
-          <Grid item xs={12} md={3}>
+          <Grid {...{ item: true, xs: 12, md: 3 } as any}>
             <Box sx={{ position: 'relative' }}>
               <Paper
                 elevation={0}
@@ -304,7 +302,7 @@ const ChapterDetailPage = () => {
             </Box>
           </Grid>
 
-          <Grid item xs={12} md={9}>
+          <Grid {...{ item: true, xs: 12, md: 9 } as any}>
             {chapter.concepts.map((concept, index) => (
               <Fade
                 key={concept.id}
