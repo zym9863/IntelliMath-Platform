@@ -170,7 +170,7 @@ const ExerciseList = ({ exercises, onSelectExercise }: ExerciseListProps) => {
       ) : (
         <Grid container spacing={3}>
           {filteredExercises.map((exercise) => (
-            <Grid item xs={12} sm={6} md={4} key={exercise.id}>
+            <Grid {...{ item: true, xs: 12, sm: 6, md: 4, key: exercise.id } as any}>
               <Card 
                 elevation={2} 
                 sx={{ 
@@ -202,7 +202,7 @@ const ExerciseList = ({ exercises, onSelectExercise }: ExerciseListProps) => {
                           sx={{ 
                             bgcolor: getDifficultyColor(exercise.difficulty),
                             color: 'white',
-                            fontWeight: 'bold'
+                            fontWeight: theme.typography.fontWeightBold
                           }}
                         />
                       </Badge>
