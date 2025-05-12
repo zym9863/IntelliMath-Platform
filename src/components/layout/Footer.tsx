@@ -18,7 +18,7 @@ const Footer = () => {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} justifyContent="space-between">
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid {...{ item: true, xs: 12, sm: 6, md: 3 } as any}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
               <FunctionsIcon sx={{ mr: 1, color: 'primary.main' }} />
               <Typography variant="h6" color="text.primary" fontWeight={600}>
@@ -30,7 +30,7 @@ const Footer = () => {
             </Typography>
           </Grid>
 
-          <Grid item xs={6} sm={3} md={2}>
+          <Grid {...{ item: true, xs: 6, sm: 3, md: 2 } as any}>
             <Typography variant="subtitle1" color="text.primary" fontWeight={600} gutterBottom>
               快速链接
             </Typography>
@@ -42,7 +42,7 @@ const Footer = () => {
             </Link>
           </Grid>
 
-          <Grid item xs={6} sm={3} md={2}>
+          <Grid {...{ item: true, xs: 6, sm: 3, md: 2 } as any}>
             <Typography variant="subtitle1" color="text.primary" fontWeight={600} gutterBottom>
               资源
             </Typography>
@@ -54,7 +54,7 @@ const Footer = () => {
             </Link>
           </Grid>
 
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid {...{ item: true, xs: 12, sm: 6, md: 3 } as any}>
             <Typography variant="subtitle1" color="text.primary" fontWeight={600} gutterBottom>
               关注我们
             </Typography>
